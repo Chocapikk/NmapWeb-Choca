@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scan Result</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		pre {
+			background-color: #333;
+			padding: 20px;
+			font-size: 16px;
+			line-height: 1.5;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+		hr {
+			border: none;
+			border-top: 1px solid white;
+			margin: 50px 0;
+		}
+
+		h2 {
+			text-align: center;
+			margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	{% if ip and output and file %}
+		<h1>Scan result for {{ip}}:</h1>
+		<pre><samp><span>{{output}}</span></samp></pre>
+		<hr>
+		<h2>Scan result saved to: <a href="{{file}}">{{file}}</a></h2>
+	{% else %}
+		<h1>Error</h1>
+	{% endif %}
+</body>
+</html>

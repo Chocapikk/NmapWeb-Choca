@@ -1,0 +1,75 @@
+<!doctype html>
+<script>
+   function message() {
+      document.getElementById("result").innerHTML = "<b>Please wait....</b>";
+   }
+</script>
+<html>
+<head>
+	<title>Flask Scanner</title>
+	<style>
+		body {
+			background-color: #000;
+			color: #fff;
+		}
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		form {
+			background-color: #333;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px #666;
+			max-width: 400px;
+			width: 100%;
+			margin: 0 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="text"], input[type="checkbox"] {
+			background-color: #666;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			border-radius: 5px;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		input[type="submit"] {
+			background-color: #fff;
+			color: #333;
+			border: none;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		.checkbox-container {
+			display: flex;
+			align-items: center;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="/scan" method="post" onsubmit="message()">
+			<label for="ip">IP Address: </label>
+			<input type="text" id="ip" name="ip" placeholder="127.0.0.1"><br>
+			<label for="interval">Interval (example: 0-500): </label>
+			<input type="text" id="interval" name="interval" placeholder="0-500"><br>
+			<div class="checkbox-container">
+				<label for="rescan">Rescan</label>
+				<input type="checkbox" id="rescan" name="rescan" value="true" style="margin-right: 75%;">
+			</div>
+			<input type="submit" value="Submit">
+			<p id="result"></p>
+		</form>
+	</div>
+</body>
+</html>
